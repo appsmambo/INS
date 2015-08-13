@@ -6,7 +6,6 @@
  * @link http://cambridgesoftware.co.uk/
  * @license GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 //No Direct Access
 defined('_JEXEC') or die;
 
@@ -18,99 +17,138 @@ include('logic.php');
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-
 	<!-- Joomla Head -->
 	<jdoc:include type="head" />
-
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/bootstrap.css" rel="stylesheet">
-     <!-- Justified-Nav CSS -->
+	<!-- Bootstrap core CSS -->
+	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/bootstrap.css" rel="stylesheet">
+	<!-- Justified-Nav CSS -->
 	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/jumbotron.css" rel="stylesheet">
-    <!-- Font Awesome CSS -->
-    <link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+	<!-- Font Awesome CSS -->
+	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
 	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/custom.css" rel="stylesheet">
- </head>
-
+</head>
 <body>
-   <!-- Menu Module -->
-   <jdoc:include type="modules" name="menu" style="none" />
-
-     <!-- Showcase Module -->
-    <?php if($this->countModules('showcase')) : ?>
-      <jdoc:include type="modules" name="showcase" style="none" />
-    <?php endif; ?>
-
-    <div class="container">
-      <div class="row">
-        <?php echo (isset($sidebar) ? '<div class="col-md-8">' : '<div class="col-md-12">'); ?>
-            <!-- Messages -->
-            <jdoc:include type="message" />
-            <?php if($show_frontpage_component == 0 && $menu->getActive() == $menu->getDefault()) : ?>
-                <!-- Do not show component -->
-            <?php else : ?>
-                <!-- Main Component -->
-                <jdoc:include type="component" />
-            <?php endif; ?>
-        </div><!--/. col-md-12 or .col-md-8 -->
-
-        <!-- Sidebar -->
-        <?php if(isset($sidebar)) : ?>
-            <div class="col-md-4">
-                <jdoc:include type="modules" name="sidebar" style="xhtml" />
-            </div>
-        <?php endif; ?>
-    </div><!--./ row -->
-
-    <?php if($this->countModules('box1') || $this->countModules('box2') || $this->countModules('box3')) : ?>
-      <!-- Example row of columns -->
-      <div class="row">
-        <?php if($this->countModules('box1')) : ?>
-          <div class="col-lg-4">
-            <jdoc:include type="modules" name="box1" style="none" />
-          </div>
-        <?php endif; ?>
-        <?php if($this->countModules('box2')) : ?>
-          <div class="col-lg-4">
-            <jdoc:include type="modules" name="box2" style="none" />
-          </div>
-        <?php endif; ?>
-        <?php if($this->countModules('box3')) : ?>
-          <div class="col-lg-4">
-            <jdoc:include type="modules" name="box3" style="none" />
-          </div>
-        <?php endif; ?>
-      </div>
-    <?php endif; ?>
-
-      <hr>
-
-      <footer>
-        <p><?php echo $copyright; ?></p>
-      </footer>
-    </div> <!-- /container -->
-
-
+	<header>
+		<section class="container">
+			<section class="pull-left tools">
+				<div class="row">
+					<div class="col-sm-6">
+						<form class="pull-left">
+							<input type="text" class="inputbox" placeholder="Buscar...">
+						</form>
+					</div>
+					<div class="col-sm-6">
+						<ul class="iconos">
+							<li class="inicio">
+								<a href="#" title="Inicio">&nbsp;</a>
+							</li>
+							<li class="correo">
+								<a href="#" title="Correo Institucional">&nbsp;</a>
+							</li>
+							<li class="mapa" title="Mapa de sitio">
+								<a href="#">&nbsp;</a>
+							</li>
+							<li class="intranet" title="Intranet">
+								<a href="#">&nbsp;</a>
+							</li>
+							<li class="directorio" title="Directorio Telefónico">
+								<a href="#">&nbsp;</a>
+							</li>
+							<li class="contacto" title="Contáctenos">
+								<a href="#">&nbsp;</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="pull-right links">
+				<p class="text-right">
+					<a href="#" class="idioma">
+						English version
+					</a>
+					<a href="#" class="transparencia">
+						Portal de Transparencia
+					</a>
+				</p>
+			</section>
+		</section>
+	</header>
+	<section class="logo container">
+		<div class="row">
+			<div class="col-sm-6">
+				<img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/images/logo.png" alt="" class="img-responsive pull-left">
+			</div>
+			<div class="col-sm-6">
+				
+			</div>
+		</div>
+	</section>
+	<section class="slides container-fluid">
+		<?php if ($this->countModules('showcase')) : ?>
+			<jdoc:include type="modules" name="showcase" style="none" />
+		<?php endif; ?>
+	</section>
+	<!-- Menu Module -->
+	<!--jdoc:include type="modules" name="menu" style="none" /-->
+	
+	<div class="container">
+		<div class="row">
+			<?php echo (isset($sidebar) ? '<div class="col-md-8">' : '<div class="col-md-12">'); ?>
+			<!-- Messages -->
+			<jdoc:include type="message" />
+			<?php if ($show_frontpage_component == 0 && $menu->getActive() == $menu->getDefault()) : ?>
+				<!-- Do not show component -->
+			<?php else : ?>
+				<!-- Main Component -->
+				<jdoc:include type="component" />
+			<?php endif; ?>
+		</div><!--/. col-md-12 or .col-md-8 -->
+		<!-- Sidebar -->
+		<?php if (isset($sidebar)) : ?>
+			<div class="col-md-4">
+				<jdoc:include type="modules" name="sidebar" style="xhtml" />
+			</div>
+		<?php endif; ?>
+	</div><!--./ row -->
+	<?php if ($this->countModules('box1') || $this->countModules('box2') || $this->countModules('box3')) : ?>
+		<!-- Example row of columns -->
+		<div class="row">
+			<?php if ($this->countModules('box1')) : ?>
+				<div class="col-lg-4">
+					<jdoc:include type="modules" name="box1" style="none" />
+				</div>
+			<?php endif; ?>
+			<?php if ($this->countModules('box2')) : ?>
+				<div class="col-lg-4">
+					<jdoc:include type="modules" name="box2" style="none" />
+				</div>
+			<?php endif; ?>
+			<?php if ($this->countModules('box3')) : ?>
+				<div class="col-lg-4">
+					<jdoc:include type="modules" name="box3" style="none" />
+				</div>
+			<?php endif; ?>
+		</div>
+	<?php endif; ?>
+	<hr>
+	<footer>
+		<p><?php echo $copyright; ?></p>
+	</footer>
+	</div> <!-- /container -->
 	<script defer src="templates/<?php echo $this->template ?>/js/bootstrap.js"></script>
 	<script defer src="templates/<?php echo $this->template ?>/js/jquery.js"></script>
 	<script defer src="templates/<?php echo $this->template ?>/js/script.js"></script>
 	<!-- end scripts-->
-
-
 	<script> // Change UA-XXXXX-X to be your site's ID
-		window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-			Modernizr.load({
+		window._gaq = [['_setAccount', 'UAXXXXXXXX1'], ['_trackPageview'], ['_trackPageLoadTime']];
+		Modernizr.load({
 			load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
 		});
 	</script>
-
-
 	<!--[if lt IE 7 ]>
 		<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 		<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
 	<![endif]-->
-  
 </body>
 </html>
-
-
